@@ -1,0 +1,20 @@
+{
+  "name": "advertisingscheduler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Peter HP Chen",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^8.0.51"
+  },
+  "dependencies": {
+    "inquirer": "^4.0.0",
+    "moment": "^2.19.2",
+    "validator": "^9.1.1"
+  }
+}
