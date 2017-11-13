@@ -15,6 +15,7 @@
   "dependencies": {
     "inquirer": "^4.0.0",
     "moment": "^2.19.2",
+    "node.extend": "^2.0.0",
     "validator": "^9.1.1"
   }
 }
