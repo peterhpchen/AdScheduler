@@ -34,9 +34,12 @@ function askRestQuestion(answers) {
 
 function askTimeQuestion(answers) {
     result = extend({}, answers);
-    if (answers.time === 'workTime') return inquirer.prompt([]);
-    if (answers.time === 'specificTime') return inquirer.prompt(inquirerQuestion.timeQuestions());
-    if (answers.time === 'specificTimeOnDate') {
+    
+    var time = answers.time;
+    
+    if (time === 'workTime') return inquirer.prompt([]);
+    if (time === 'specificTime') return inquirer.prompt(inquirerQuestion.timeQuestions());
+    if (time === 'specificTimeOnDate') {
         var dates = utility.getSelectedDate(answers).sort();
 
         var timeQuestions = [];
@@ -50,10 +53,12 @@ function askTimeQuestion(answers) {
 
 function outputAdScheduler(answers) {
     result = extend(result, answers);
+
     var consoleDataArranger = new arranger();
     var excelExporter = new exporter();
-    var adScheduler = new scheduler(consoleDataArranger, excelExporter);
-    adScheduler.arrange(result);
+    var adScheduler = new scheduler(consoleDataArranger, excelExporter, result);
+
+    adScheduler.arrange();
     adScheduler.output();
 }
 
