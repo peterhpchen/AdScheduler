@@ -1,7 +1,13 @@
+'use strict';
+
 var inquirer = require('inquirer');
 var validator = require('validator');
 var moment = require('moment');
 var extend = require('node.extend');
+
+var scheduler = require('./lib/scheduler');
+var arranger = require('./lib/arranger');
+var exporter = require('./lib/exporter');
 
 var result = {};
 
@@ -385,10 +391,13 @@ function askTimeQuestion(answers) {
     }
 }
 
-function makeAdScheduler(answers) {
+function outputAdScheduler(answers) {
     result = extend(result, answers);
-
-    console.log(result);
+    var consoleDataArranger = new arranger();
+    var excelExporter = new exporter();
+    var adScheduler = new scheduler(consoleDataArranger, excelExporter);
+    adScheduler.arrange(result);
+    adScheduler.output();
 }
 
-inquirer.prompt(questions).then(askTimeQuestion).then(askRestQuestion).then(askTimePeriodQuestion).then(makeAdScheduler);
+inquirer.prompt(questions).then(askTimeQuestion).then(askRestQuestion).then(askTimePeriodQuestion).then(outputAdScheduler);
