@@ -4,5 +4,5 @@ var templateConfig = module.exports = {
     templatePath: {
         excel: './template/excel/template.xlsx'
     },
-    outputDefaultFilePath: './report.xlsx'
+    outputDefaultFilePath: './example/report.xlsx'
 };
