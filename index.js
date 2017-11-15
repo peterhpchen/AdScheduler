@@ -11,7 +11,7 @@ var utility= require('./lib/infrastructure/utility');
 
 var result = {};
 
-console.log('Start to create an Ad Schedule\n');
+console.log('Start to create an Ad Schedule');
 
 function askTimePeriodQuestion(answers) {
     result = extend(result, answers);
